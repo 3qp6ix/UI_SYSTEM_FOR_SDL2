@@ -49,7 +49,6 @@ void WIDGET_LIST_FREE_WIDGETS(WIDGET_LIST* list){
     }
 }
 
-
 WIDGET_MANAGER* CREATE_WIDGET_MANAGER(void){
     WIDGET_MANAGER* manager = (WIDGET_MANAGER*)malloc(sizeof(WIDGET_MANAGER));
     if(!manager) return NULL;
@@ -59,6 +58,12 @@ WIDGET_MANAGER* CREATE_WIDGET_MANAGER(void){
     };
 
     return manager;
+}
+
+void DESTROY_WIDGET_MANAGER(WIDGET_MANAGER* manager){
+    if(!manager) return;
+    WIDGET_LIST_FREE_WIDGETS(&manager->ROOT);
+    free(manager);
 }
 
 WIDGET_LIST* TARGET_ROOT = NULL;
