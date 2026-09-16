@@ -41,7 +41,7 @@ int main(int argc,char** argv){
             }
         }
 
-        fill_rect(main_surface,(RECT){0,0,WIDTH,HEIGHT},0xFF445588);
+        fill_rect(main_surface,(RECT){0,0,WIDTH,HEIGHT},0xFFFFFFFF);
 
         WIDGET_LIST_DRAW_WIDGETS(TARGET_ROOT,main_surface);
         SDL_UpdateWindowSurface(main_window);
