@@ -23,10 +23,10 @@ int main(int argc,char** argv){
     SDL_Surface* main_surface = SDL_GetWindowSurface(main_window);
 
     WIDGET_MANAGER* manager = CREATE_WIDGET_MANAGER();
-    TARGET_ROOT = &manager->ROOT;
+    SET_TARGET_ROOT(manager);
     manager->surface = main_surface;
 
-    WND* windowA = CREATE_WND(0,0,400,300,0xFF4455FF);
+    WND* windowA = CREATE_WND(20,20,400,300,0xFF444444);
 
     bool running = true;
     SDL_Event e;
@@ -42,6 +42,8 @@ int main(int argc,char** argv){
         }
 
         fill_rect(main_surface,(RECT){0,0,WIDTH,HEIGHT},0xFF445588);
+
+        WIDGET_LIST_DRAW_WIDGETS(TARGET_ROOT,main_surface);
         SDL_UpdateWindowSurface(main_window);
     }
 
