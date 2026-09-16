@@ -6,6 +6,8 @@
 
 #include "graphics.h"
 
+#define TAB_HEIGHT 25 // pixels
+#define TAB_COLOR 0xFF5566FF
 
 // DRAW WINDOW
 void DRAW_WND(WIDGET* widget,SDL_Surface* surface){
@@ -13,9 +15,16 @@ void DRAW_WND(WIDGET* widget,SDL_Surface* surface){
 
     WIDGET* w = widget;
     WND* wnd = (WND*)widget;
+
     fill_rect(
         surface,
-        (RECT){w->x,w->y,w->w,w->h},
+        (RECT){w->x,w->y,w->w,TAB_HEIGHT},
+        TAB_COLOR
+    );
+
+    fill_rect(
+        surface,
+        (RECT){w->x,w->y+TAB_HEIGHT,w->w,w->h},
         wnd->backgroundColor
     );
 }
