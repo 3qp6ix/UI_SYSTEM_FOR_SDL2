@@ -9,6 +9,11 @@ typedef struct SDL_Surface SDL_Surface;
 typedef struct WND {
     WIDGET widget;
     uint32_t backgroundColor;
+    uint32_t tabColor;
+    bool canDrag;
+
+    int offset_x;
+    int offset_y;
 } WND;
 
 void DRAW_WND(WIDGET* widget,SDL_Surface* surface);

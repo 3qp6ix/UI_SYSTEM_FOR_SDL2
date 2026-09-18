@@ -28,10 +28,12 @@ int main(int argc,char** argv){
 
     WND* windowA = CREATE_WND(50,50,400,300,0xFF252A34);
     windowA->tabColor = 0xFF3B82F6;
+    windowA->canDrag = true;
 
     TARGET_WIDGET = (WIDGET*)windowA;
-    WND* inner_window = CREATE_WND(50,50,200,100,0xFF343B49);
+    WND* inner_window = CREATE_WND(0,0,200,100,0xFF343B49);
     inner_window->tabColor = 0xFF60A5BA;
+    inner_window->canDrag = true;
 
     bool running = true;
     SDL_Event e;
