@@ -26,12 +26,18 @@ int main(int argc,char** argv){
     SET_TARGET_ROOT(manager);
     manager->surface = main_surface;
 
-    WND* windowA = CREATE_WND(20,20,400,300,0xFF444444);
+    WND* windowA = CREATE_WND(50,50,400,300,0xFF252A34);
+    windowA->tabColor = 0xFF3B82F6;
+
+    TARGET_WIDGET = (WIDGET*)windowA;
+    WND* inner_window = CREATE_WND(50,50,200,100,0xFF343B49);
+    inner_window->tabColor = 0xFF60A5BA;
 
     bool running = true;
     SDL_Event e;
     while(running){
         while(SDL_PollEvent(&e)){
+            WIDGET_MANAGER_HANDLE_EVENT(manager,&e);
             switch(e.type){
                 case SDL_QUIT:
                     running = false;
